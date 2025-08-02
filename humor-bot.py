@@ -37,5 +37,4 @@ async def joke(ctx):
     joke_text = get_joke()
     await ctx.send(joke_text)
 
-# Replace with your actual bot token
-bot.run('000000000000000000')
+bot.run('YOUR_BOT_TOKEN_HERE')
