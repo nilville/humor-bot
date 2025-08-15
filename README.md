@@ -1,6 +1,6 @@
 # Discord Joke Bot 🤖😄
 
-A simple Discord bot that tells jokes when users type the `!joke` command.
+A simple Discord bot that tells jokes when users type the `$joke` command.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Before running the bot, make sure you have:
    - Use the generated URL to invite the bot to your server
 
 3. **Use the bot**:
-   - Type `!joke` in any channel where the bot has access
+   - Type `$joke` in any channel where the bot has access
    - The bot will respond with a random joke
 
 ## Bot Permissions
@@ -52,7 +52,7 @@ The bot needs the following permissions:
 ## Customization
 
 You can easily customize the bot by:
-- Changing the command prefix from `!` to something else
+- Changing the command prefix from `$` to something else
 - Adding additional commands and features
 
 ## Troubleshooting

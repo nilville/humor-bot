@@ -12,14 +12,14 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='$', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
 
 @bot.command()
-async def test(ctx):
+async def me(ctx):
     await ctx.send(f"<@{ctx.author.id}> \n- **USERNAME** : {ctx.author.name} \n- **NICKNAME** : {ctx.author.display_name} \n- **ID** : {ctx.author.id} \n- **GUILD** : {ctx.guild.name} \n- **GUILD ID** : {ctx.guild.id}")
 
 @bot.command(name='members')
@@ -65,7 +65,20 @@ async def random_member(ctx):
     chosen_member = random.choice(guild.members)
     cost = random.uniform(50, 100)
     await ctx.send(f" - THIS NIGGA **{chosen_member.mention}** COST : **{round(cost, 2)} $** ")
+    
+@bot.command(name="call")
+async def call_bot(ctx):
+    await ctx.send(f" # Type : ( $test ) for displaying your infos \n # Type : ( $members ) for displaying all the server members \n # Type : ( $buy ) for buying some sheep niggers")
 
+@bot.hybrid_command(name="ping", description="Check bot latency")
+async def ping(ctx):
+    await ctx.send(f"Pong! 🏓 Latency: {round(bot.latency * 1000)}ms")
+
+# Sync slash commands (run once)
+@bot.command()
+async def sync(ctx):
+    await bot.tree.sync()
+    await ctx.send("Slash commands synced!")
 
 # Replace with your actual bot token
 bot.run(os.getenv("DISCORD_BOT_TOKEN"))
